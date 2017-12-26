@@ -1,7 +1,9 @@
-package com.fantasychong.fantasyweather;
+package com.fantasychong.fantasyweather.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.fantasychong.fantasyweather.R;
 
 public class MainActivity extends AppCompatActivity {
 
