@@ -2,12 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true">
 
         <TextView
             android:id="@+id/area_tv"
@@ -15,12 +17,13 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="Fantasychong"
+            android:layout_marginTop="10dp"
             android:textColor="#fff"
             android:textSize="20sp" />
 
         <RelativeLayout
             android:id="@+id/area_rl"
-            android:layout_width="50dp"
+            android:layout_width="70dp"
             android:layout_height="match_parent">
 
             <Button
