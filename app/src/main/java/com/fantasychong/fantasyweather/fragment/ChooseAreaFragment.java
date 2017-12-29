@@ -1,6 +1,7 @@
 package com.fantasychong.fantasyweather.fragment;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fantasychong.fantasyweather.R;
+import com.fantasychong.fantasyweather.activity.WeatherActivity;
 import com.fantasychong.fantasyweather.db.City;
 import com.fantasychong.fantasyweather.db.County;
 import com.fantasychong.fantasyweather.db.Province;
@@ -64,9 +66,12 @@ public class ChooseAreaFragment extends Fragment {
         return view;
     }
 
+
+
+
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -76,6 +81,12 @@ public class ChooseAreaFragment extends Fragment {
                 }else if(currentLevel== LEVEL_CITY){
                     selectedCity= cityList.get(position);
                     queryCounties();
+                }else if (currentLevel== LEVEL_COUNTY){
+                    String weatherId= countyList.get(position).getWeatherId();
+                    Intent intent= new Intent(getActivity(), WeatherActivity.class);
+                    intent.putExtra("weather_id", weatherId);
+                    startActivity(intent);
+                    getActivity().finish();
                 }
             }
         });
